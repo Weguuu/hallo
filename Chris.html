@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="styles.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebuuuuuu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="Littleroot.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div id="login-section" class="login-section">
+            <h1>Welcome, Bebi.</h1>
+            <input type="text" id="username" placeholder="Username" />
+            <input type="password" id="password" placeholder="Password" />
+            <div>
+                <button onclick="checkLogin()">Login</button>
+                <button onclick="showHints()">Hint</button>
+            </div>
+            <div id="hint-box"></div>
+        </div>
+
+        <div id="content-section" class="hidden content-section">
+            <nav>
+                <a href="#" onclick="event.preventDefault(); showPage('home')">Home</a>
+                <a href="#" onclick="event.preventDefault(); showPage('letter')">Letter</a>
+                <a href="#" onclick="event.preventDefault(); showPage('us')">Us</a>
+            </nav>
+
+            <div id="home" class="page active">
+                <h1>Happy Birthday!</h1>
+                <p>I know that this isn't something grand, but I hope you'll like it.</p>
+            </div>
+
+            <div id="letter" class="page">
+                <h1>To my dearest Christopher, Happy Birthday.</h1>
+                <textarea style="width: 90%; height: 200px; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">I want to start this off with my sincerest gratitude with you accepting me to be a part of your life, subsequently, mine. For I never once thought that I will be able to fall in love again in light of my past ventures. I guess love does comes in the most unexpected of times, and I certainly did not expect that I, of all people, would get to officially be with someone who's as perfect as you. You may see it otherwise, but in my eyes, those words stands factual.
+
+                    I am blessed and far too lucky to be a boyfriend to an outstanding literature student who loves the same things as I do. For I get to enjoy those little things that makes me, me, with you. 
+                    
+                    Everything has been a total bliss thus far with you, baby. Overshadowing everything bad with a simple thought of you, making my day brighter and lighter.
+                    
+                    I love you for everything that I am, always striving to be better, be the best that no one ever was for you (Oh no is that a Pokemon reference?!?!?!?!?? LARO ASKDLASKDA). Taking every step with a smile and with utmost motivation in helping us achieve the happyness we so desire.
+                    
+                    Heed my words, my love. I will be there for you, in every stroke of the pen that writes our stories, unfolding each chapter of our journey, and ultimately reaching your dream that I too, now yearns for.
+                    
+                    I do hope you know, 
+                    that I am more than willing to carry you home.
+                    
+                    Whether it's tonight
+                    or a 100 years down the road.
+
+                    I don't want you to wonder, darling
+                    Because I need you the most.
+                    
+                    In each and every life,
+                    I choose us everytime.
+                    
+                    Together, here and now
+                    to the eversweet hereafter of the future.
+                    
+                    Happy birthday, my love.</textarea>
+            </div>
+
+            <div id="us" class="page">
+                <h1>Here's Us, My love.</h1>
+                <div class="us-gallery">
+                    <div style="background-image: url('photo_6276282851662086179_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086177_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086182_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086188_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086189_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086190_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086191_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086192_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086195_y.jpg');"></div>
+                    <div style="background-image: url('photo_6163691928969919306_y.jpg');"></div>
+                    <div style="background-image: url('photo_6276282851662086194_y.jpg');"></div>
+                    <div style="background-image: url('photo_6163691928969919313_y.jpg');"></div>
+                    <div style="background-image: url('photo_6174838172261925785_y.jpg');"></div>
+                    <div style="background-image: url('photo_6174838172261925796_y.jpg');"></div>
+                    <div style="background-image: url('photo_6174838172261925789_y.jpg');"></div>
+                    <div style="background-image: url('photo_6174838172261925795_y.jpg');"></div>
+                    <div style="background-image: url('photo_6212895332010934730_y.jpg');"></div>
+                    <div style="background-image: url('photo_6212895332010934728_y.jpg');"></div>
+                    <div style="background-image: url('photo_6212895332010934732_y.jpg');"></div>
+                    <div style="background-image: url('photo_6212895332010934736_y.jpg');"></div>
+                    <div style="background-image: url('photo_6212895332010934733_y.jpg');"></div>
+                    <div style="background-image: url('photo_6255830685549970213_y.jpg');"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctUsername = "102724";
+        const correctPassword = "Bumble";
+        const hints = [
+            "It's the date you and I first met.",
+            "It's where we met.",
+            "The username's our monthsary.",
+            "Username date order:No spaces + mmddyear",
+            "Capital first letter ng password, and yes app siya :>"
+        ];
+        let hintIndex = 0;
+
+        function checkLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username === correctUsername && password === correctPassword) {
+                document.getElementById("login-section").classList.add("hidden");
+                document.getElementById("content-section").classList.remove("hidden");
+            } else {
+                alert("Again, bebuu. You know where and when we met <3");
+            }
+        }
+
+        function showHints() {
+            const hintBox = document.getElementById("hint-box");
+            hintBox.textContent = hints[hintIndex];
+            hintIndex = (hintIndex + 1) % hints.length;
+        }
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
